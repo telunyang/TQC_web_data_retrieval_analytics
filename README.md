@@ -1,5 +1,5 @@
 # TQC_web_data_retrieval_analytics
-網頁資料擷取與分析 Python
+網頁資料擷取與分析 Python 3
 - 每一題皆經過 Code Judger 平台測試：「答案正確」。
 - 若內容用在考試時出現問題，請與我回報: darren@darreninfo.cc
   - 非上課學員請勿來信，我不會回。
