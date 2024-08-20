@@ -24,23 +24,23 @@ TQC 出現 23 次
 '''
 
 # 載入模組
-import ___
-import ___
+import requests
+import re
 
-url = '___'
+url = 'https://www.codejudger.com/target/5201.html'
 
 # 使用 GET 請求
-htmlfile = requests.___(___)
+htmlfile = requests.get(url)
 # 驗證HTTP Status Code
-if htmlfile.status_code == ___:
+if htmlfile.status_code == 200:
     # 欲搜尋的字串
-    ___ = input("請輸入欲搜尋的字串 : ")
-    ___ = re.findall(___, htmlfile.text)
-    if ___ in htmlfile.text:
-        print(___, "搜尋成功")
-        print(___, "出現 %d 次" % len(___))
+    s = input("請輸入欲搜尋的字串 : ")
+    l = re.findall(s, htmlfile.text)
+    if s in htmlfile.text:
+        print(s, "搜尋成功")
+        print(s, "出現 %d 次" % len(l))
     else:
-        print(___, "搜尋失敗")
-        print(___, "出現 0 次")
+        print(s, "搜尋失敗")
+        print(s, "出現 0 次")
 else:
     print("網頁下載失敗")

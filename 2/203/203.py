@@ -31,32 +31,32 @@ TQC+ 網頁資料擷取與分析 Python 203 台灣彩券
 
 # -*- coding: utf-8 -*-
 
-import ___
+import bs4
 import requests
 
-url = '___'
+url = 'https://www.codejudger.com/target/5203.html'
 # GET 請求
-html = requests.___(___)
+html = requests.get(url)
 
 # 使用 lxml 解析器
-objSoup = bs4.BeautifulSoup(html.text, '___')
+objSoup = bs4.BeautifulSoup(html.text, 'lxml')
 
 dataTag = objSoup.select('.contents_box02')
 
-balls = dataTag[2].find_all('___', {'class': '___'})
+balls = dataTag[2].find_all('div', {'class': 'ball_tx ball_yellow'})
 print("大樂透開獎 : ")
 print('-------------')
 
 # 開出順序
 print("開出順序 : ", end='')
 for i in range(6):
-    print(____.____, end='   ')
+    print(balls[i].get_text(), end='   ')
 
 # 大小順序
 print("\n大小順序 : ", end='')
 for i in range(6, len(balls)):
-    print(____.____, end='   ')
+    print(balls[i].get_text(), end='   ')
 
 # 特別號：資料位於 <div class="ball_red"></div>
-redball = dataTag[2].find_all('___', {'class': '___'})
-print("\n特別號   :", ____)
+redball = dataTag[2].find_all('div', {'class': 'ball_red'})
+print("\n特別號   :", redball[0].get_text())

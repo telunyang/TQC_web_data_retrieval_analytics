@@ -22,22 +22,25 @@ TQC+ 網頁資料擷取與分析 Python 105 受僱員工資料表
 (2, '小范', 2000, '臺北市', 50000)
 (3, '小施', 1999, '高雄市', 47000)
 (4, '小吳', 1998, '台中市', 52000)
+
+資料庫內容：
+https://i.imgur.com/6eFUaNA.png
 '''
 
 # 載入 sqlite3 模組
-import ___
+import sqlite3
 
 # 建立資料庫連結
-con = ___.___('___')
+con = sqlite3.connect('read.db')
 # 建立cursor物件
-___ = con.___
+cur = con.cursor()
 
 # 查詢Employee資料表
-___.___("SELECT * FROM Employee")
+cur.execute("SELECT * FROM Employee")
 
 # 印出查詢結果
-for ___ in ___:
-    print(___)
+for t in cur.fetchall():
+    print(t)
 
 # 關閉與資料庫的連結
 con.close()

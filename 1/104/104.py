@@ -40,19 +40,32 @@ TQC+ 網頁資料擷取與分析 Python 104 JSON檔案輸出處理
 https://i.imgur.com/c06G8ia.png
 '''
 
+# 載入 json 模組
+import json
+
+
 # 建立資料
-# 'id': '1'
-# 'name': 'Peter'
-# 'country': 'Taiwan'
-#
-# 'id': '2'
-# 'name': 'Jack'
-# 'country': 'USA'
-#
-# 'id': '3'
-# 'name': 'Cindy'
-# 'country': 'Japan'
+data = {
+    'people': [
+        {
+            'id': '1',
+            'name': 'Peter',
+            'country': 'Taiwan'
+        },
+        {
+            'id': '2',
+            'name': 'Jack',
+            'country': 'USA'
+        },
+        {
+            'id': '3',
+            'name': 'Cindy',
+            'country': 'Japan'
+        }
+    ]
+}
 
 # 將資料寫入json檔案
-with ___('___', '___') as outfile:
-    json.dump(___, ___)
+with open('write.json', 'w') as outfile:
+    json.dump(data, outfile)
+

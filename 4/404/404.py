@@ -45,16 +45,17 @@ import pandas as pd
 
 # 讀取學生分數資料
 # 讀取 read.csv
-df = ___(___)
-scores = df["___"].values
+df = pd.read_csv('read.csv')
+scores = df["scores"].values
 
 # range_count[0]: range0~19
 # range_count[1]: range20~39
 # range_count[2]: range40~59
 # range_count[3]: range60~79
 # range_count[4]: range80~100
+
 # 以0初始化計數串列
-range_count = [0] * 5
+range_count = [0] * 5 # 結果: [0, 0, 0, 0, 0]
 
 # 計數過程
 for score in scores:
@@ -70,21 +71,29 @@ for score in scores:
         range_count[4] += 1
 
 # y軸標籤
-index = np.arange(___, ___, ___)
+index = np.arange(0, 25, 5)
+
 # X軸刻度
-labels = [___, ___, '40~59', ___, '80~100']
+labels = ['0~19', '20~39', '40~59', '60~79', '80~100']
+
 # 畫出長條圖
-plt.bar(___, range_count, ___)
+plt.bar(labels, range_count, width=0.4) # 題目寫長條寬度為 2，但是這樣會有重疊，所以改為 0.4
+
 # 設定X軸名稱
-plt.xlabel('___', fontsize=___)
+plt.xlabel('Range', fontsize=14)
+
 # 設定Y軸名稱
-plt.ylabel('___', fontsize=___)
+plt.ylabel('Quantity', fontsize=14)
+
 # 設定x軸標籤
-plt.xticks(index, labels)
+# plt.xticks(index, labels) # 多餘的，因為 plt.bar(...) 的部分已經設定了
+
 # 設定y軸標籤
 plt.yticks(index)
+
 # 設定圖名稱
-plt.title('___', fontsize=___)
+plt.title('Score ranges count', fontsize=20)
+
 # 輸出圖片檔案
-plt.___('___')
+plt.savefig('chart.png')
 plt.close()

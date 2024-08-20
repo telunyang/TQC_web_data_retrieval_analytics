@@ -90,26 +90,26 @@ Content-Length: 37985
 '''
 
 # 載入 requests 與 json 模組
-import ___
-import ___
+import requests
+import json
 
 # 開放資料Json格式連結
-url = ___
+url = 'https://www.codejudger.com/target/5205.json'
 # 發出Get請求
-response = ___
+response = requests.get(url)
 # 回傳內容長度
-print(___, ___)
+print('Content-Length:', len(response.content))
 # 將取得的回傳內容轉換成Json格式
-response = ___
+response = json.loads(response.text)
 
 print()
 
 # 顯示新北市每一個地區的PM2.5相關資料
 print('新北市PM2.5相關資料：')
 for record in response:
-    if record['County'] == '___':
-        print('%s：' % record['___'])
-        print('AQI：%s' % record['___'])
-        print('PM2.5：%s' % record['___'])
-        print('PM10：%s' % record['___'])
-        print('資料更新時間：%s' % record['___'])
+    if record['County'] == '新北市':
+        print('%s：' % record['SiteName'])
+        print('\tAQI：%s' % record['AQI'])
+        print('\tPM2.5：%s' % record['PM2.5'])
+        print('\tPM10：%s' % record['PM10'])
+        print('\t資料更新時間：%s' % record['PublishTime'])
