@@ -43,7 +43,7 @@ objSoup = bs4.BeautifulSoup(html.text, 'lxml')
 
 dataTag = objSoup.select('.contents_box02')
 
-balls = dataTag[2].find_all('div', {'class': 'ball_tx ball_yellow'})
+balls = dataTag[2].find_all('div', {'class': 'ball_yellow'})
 print("大樂透開獎 : ")
 print('-------------')
 

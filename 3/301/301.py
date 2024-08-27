@@ -69,7 +69,7 @@ print()
 
 # 輸出後二位學生的所有成績
 print('後二位的成績')
-print(df.iloc[-2:])
+print(df.iloc[-2:]) # 或是 df.tail(2)
 print()
 
 # 將自然成績做遞減排序輸出
