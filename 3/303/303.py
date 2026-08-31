@@ -109,7 +109,7 @@ print(df)
 print()  # 使用print分隔
 
 
-df1 = df.sort_values(by="西瓜價", ascending=False)
+df1 = df.sort_values(by="西瓜價", kind='mergesort', ascending=False)
 print('以西瓜價遞減排序')
 print(df1['西瓜價'])
 print()  # 使用print分隔
